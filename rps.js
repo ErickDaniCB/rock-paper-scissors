@@ -36,10 +36,29 @@ function singleRound (playerChoice, computerChoice) {
         } else 
             return `It's a tie!`;
     } else 
-    
+
+    if (playerChoice === "Paper"){
+        if (computerChoice === "Rock") {
+            return `You win! ${playerChoice} beats ${computerChoice}.`;
+        } else 
+        if (computerChoice === "Scissors") {
+            return `You lose! ${computerChoice} beats ${playerChoice}.`;
+        } else 
+            return `It's a tie!`;
+    } else 
+
+    if (playerChoice === "Scissors"){
+        if (computerChoice === "Paper") {
+            return `You win! ${playerChoice} beats ${computerChoice}.`;
+        } else 
+        if (computerChoice === "Rock") {
+            return `You lose! ${computerChoice} beats ${playerChoice}.`;
+        } else 
+            return `It's a tie!`;
+    } 
 }
 
-const playerChoice = "Rock";
+const playerChoice = "Scissors";
 
 console.log(singleRound(playerChoice, computerChoice));
 
