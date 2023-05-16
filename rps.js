@@ -58,7 +58,18 @@ function singleRound (playerChoice, computerChoice) {
     } 
 }
 
-const playerChoice = "Scissors";
-
+let playerChoice = "Scissors";
+getComputerChoice();
 console.log(singleRound(playerChoice, computerChoice));
 
+playerChoice = "Scissors";
+getComputerChoice();
+console.log(singleRound(playerChoice, computerChoice));
+
+playerChoice = "Rock";
+getComputerChoice();
+console.log(singleRound(playerChoice, computerChoice));
+
+playerChoice = "Paper";
+getComputerChoice();
+console.log(singleRound(playerChoice, computerChoice));
