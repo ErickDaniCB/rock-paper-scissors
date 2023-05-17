@@ -23,11 +23,17 @@ function getComputerChoice () {
     return computerChoice;
 };
 
-console.log(computerChoice);
+//Place your guess inside the quotation marks below
+let playerChoiceU = "rOck";
+//Your guess goes here ^
+
+
+let playerChoice = playerChoiceU.toUpperCase();
 
 function singleRound (playerChoice, computerChoice) {
     
-    if (playerChoice === "Rock"){
+
+    if (playerChoice === "ROCK"){
         if (computerChoice === "Scissors") {
             return `You win! ${playerChoice} beats ${computerChoice}.`;
         } else 
@@ -37,7 +43,7 @@ function singleRound (playerChoice, computerChoice) {
             return `It's a tie!`;
     } else 
 
-    if (playerChoice === "Paper"){
+    if (playerChoice === "PAPER"){
         if (computerChoice === "Rock") {
             return `You win! ${playerChoice} beats ${computerChoice}.`;
         } else 
@@ -47,7 +53,7 @@ function singleRound (playerChoice, computerChoice) {
             return `It's a tie!`;
     } else 
 
-    if (playerChoice === "Scissors"){
+    if (playerChoice === "SCISSORS"){
         if (computerChoice === "Paper") {
             return `You win! ${playerChoice} beats ${computerChoice}.`;
         } else 
@@ -58,18 +64,5 @@ function singleRound (playerChoice, computerChoice) {
     } 
 }
 
-let playerChoice = "Scissors";
-getComputerChoice();
 console.log(singleRound(playerChoice, computerChoice));
 
-playerChoice = "Scissors";
-getComputerChoice();
-console.log(singleRound(playerChoice, computerChoice));
-
-playerChoice = "Rock";
-getComputerChoice();
-console.log(singleRound(playerChoice, computerChoice));
-
-playerChoice = "Paper";
-getComputerChoice();
-console.log(singleRound(playerChoice, computerChoice));
