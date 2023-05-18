@@ -4,30 +4,29 @@ let computerChoice = getComputerChoice();
 
 function getComputerChoice () {
 
-    let computerChoice = Math.floor(Math.random() * 3) + 1;
+    let computerPlay = Math.floor(Math.random() * 3) + 1;
 
     // Next we convert the random number guess to a sting.
-    if (computerChoice === 1) {
-        computerChoice = "Rock";
+    if (computerPlay === 1) {
+        computerPlay = "Rock";
     } else 
 
-    if (computerChoice === 2) {
-        computerChoice = "Paper";
+    if (computerPlay === 2) {
+        computerPlay = "Paper";
     } else 
 
-    if (computerChoice === 3) {
-        computerChoice = "Scissors";
+    if (computerPlay === 3) {
+        computerPlay = "Scissors";
     }
     
     //return the value to the function.
-    return computerChoice;
+    return computerPlay;
 };
 
 //Place your guess inside the quotation marks below
-let playerChoiceU = "paper";
+let playerPlay = "paper";
 //Your guess goes here ^
-
-let playerChoice = playerChoiceU.toUpperCase();
+let playerChoice = playerPlay.toUpperCase();
 
 let playerScore = 0;
 let computerScore = 0;
@@ -69,13 +68,17 @@ function singleRound (playerChoice, computerChoice) {
         } else 
             return `It's a tie!`;
     } 
+    
 }
 
+console.log(`Your score is ${playerScore} and the computer's score is ${computerScore}`);
 console.log(singleRound(playerChoice, computerChoice));
 
-console.log(`Your score is ${playerScore} and the computer's score is ${computerScore}`);
 
 
 //Need two variables for the player and computer scores respectively. 
 //Need to console.log the result in each iteration (round). 
 //In each iteration the code has to wait the player to enter his/her move. 
+
+getComputerChoice();
+console.log(computerChoice);
