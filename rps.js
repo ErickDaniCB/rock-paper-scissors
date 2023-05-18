@@ -24,20 +24,23 @@ function getComputerChoice () {
 };
 
 //Place your guess inside the quotation marks below
-let playerChoiceU = "rOck";
+let playerChoiceU = "paper";
 //Your guess goes here ^
-
 
 let playerChoice = playerChoiceU.toUpperCase();
 
+let playerScore = 0;
+let computerScore = 0;
+
 function singleRound (playerChoice, computerChoice) {
-    
 
     if (playerChoice === "ROCK"){
         if (computerChoice === "Scissors") {
+            playerScore += 1;
             return `You win! ${playerChoice} beats ${computerChoice}.`;
         } else 
         if (computerChoice === "Paper") {
+            computerScore += 1;
             return `You lose! ${computerChoice} beats ${playerChoice}.`;
         } else 
             return `It's a tie!`;
@@ -45,9 +48,11 @@ function singleRound (playerChoice, computerChoice) {
 
     if (playerChoice === "PAPER"){
         if (computerChoice === "Rock") {
+            playerScore += 1;
             return `You win! ${playerChoice} beats ${computerChoice}.`;
         } else 
         if (computerChoice === "Scissors") {
+            computerScore += 1;
             return `You lose! ${computerChoice} beats ${playerChoice}.`;
         } else 
             return `It's a tie!`;
@@ -55,9 +60,11 @@ function singleRound (playerChoice, computerChoice) {
 
     if (playerChoice === "SCISSORS"){
         if (computerChoice === "Paper") {
+            playerScore += 1;
             return `You win! ${playerChoice} beats ${computerChoice}.`;
         } else 
         if (computerChoice === "Rock") {
+            computerScore += 1;
             return `You lose! ${computerChoice} beats ${playerChoice}.`;
         } else 
             return `It's a tie!`;
@@ -66,3 +73,9 @@ function singleRound (playerChoice, computerChoice) {
 
 console.log(singleRound(playerChoice, computerChoice));
 
+console.log(`Your score is ${playerScore} and the computer's score is ${computerScore}`);
+
+
+//Need two variables for the player and computer scores respectively. 
+//Need to console.log the result in each iteration (round). 
+//In each iteration the code has to wait the player to enter his/her move. 
