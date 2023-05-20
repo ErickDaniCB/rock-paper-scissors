@@ -9,7 +9,7 @@ so we need to compare both inputs and add the result to their current score.
 let possiblePlays = ["ROCK", "PAPER", "SCISSORS"];
 let playerPlayRaw = "";
 let playerPlay = "";
-let computerPlay = ""
+//let computerPlay = ""
 //let playerScore = 0;
 //let computerScore = 0;
 
@@ -26,7 +26,7 @@ function playerPrompt() {
     return playerPlay = playerPlayRaw.toUpperCase()
 }
 
-//Next we need to compare our play inputs in order to see who's the winner of the round.
+//Next we need to compare play inputs in order to see who's the winner of the round.
 
 function singleRound(playerPlay, computerPlay){
     
@@ -62,23 +62,29 @@ function singleRound(playerPlay, computerPlay){
     
 }
 
+//The function below let us play the game 5 times in a row. 
+
 function game(){
     for (let i = 1; i <= 5; i++){
+        console.log(`Round ${i}!`);
+        let computerPlay = getComputerChoice();
+        playerPrompt();
         switch (i) {
             case 1:
-                console.log("Round 1:")
-                playerPrompt();
-                getComputerChoice();
                 console.log(singleRound(playerPlay, computerPlay));
                 break;
             case 2:
-                console.log("Round 2:")
-                playerPrompt();
-                getComputerChoice();
+                console.log(singleRound(playerPlay, computerPlay));
+                break;
+            case 3:
+                console.log(singleRound(playerPlay, computerPlay));
+                break;
+            case 4:
+                console.log(singleRound(playerPlay, computerPlay));
+                break;
+            case 5:
                 console.log(singleRound(playerPlay, computerPlay));
                 break;
         }
     }
 }
-
-game();
