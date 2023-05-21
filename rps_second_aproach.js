@@ -91,7 +91,7 @@ function scoring (){
     console.log(`Player Score: ${playerScore} Computer Score: ${computerScore}`);
 }
 
-//The function below let us play the game 5 times in a row. 
+//The function below let us play a best-of-five match!
 
 function game() {
    
