@@ -93,7 +93,7 @@ function scoring (){
 
 //The function below let us play a best-of-five match!
 
-function game() {
+/* function game() {
    
     playerScore = 0;
     computerScore = 0;
@@ -138,3 +138,17 @@ function game() {
     }
 
 }
+
+*/
+
+const rockPlay = document.querySelector('#rock');
+const paperPlay = document.querySelector('#paper');
+const scissorsPlay = document.querySelector('#scissors');
+
+const log = (e) => console.log(e);
+
+rockPlay.addEventListener('click', log);
+
+paperPlay.addEventListener('click', log);
+
+scissorsPlay.addEventListener('click', log);
