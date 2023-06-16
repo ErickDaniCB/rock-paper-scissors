@@ -6,9 +6,8 @@ In the rock, paper, scissors game there's only two players
 so we need to compare both inputs and add the result to their current score.
 */
 
-let possiblePlays = ["ROCK", "PAPER", "SCISSORS"];
-let playerPlayRaw = "";
-let playerPlay = "";
+let playerPlayRaw;
+let playerPlay;
 let playerScore = 0;
 let computerScore = 0;
 let singleRoundResult; 
@@ -16,8 +15,10 @@ let i;
 //Now we need a way to generate the computer play to assign to it's correspondent variable.
 
 function getComputerChoice() {
-    let guess = Math.floor(Math.random() * possiblePlays.length);
-    return computerPlay = possiblePlays[guess]; 
+    const possiblePlays = ["ROCK", "PAPER", "SCISSORS"];
+    const guess = Math.floor(Math.random() * possiblePlays.length);
+    const computerPlay = possiblePlays[guess];
+    return computerPlay;
 }
 
 function playerPrompt() {
@@ -93,7 +94,7 @@ function scoring (){
 
 //The function below let us play a best-of-five match!
 
-/* function game() {
+function game() {
    
     playerScore = 0;
     computerScore = 0;
@@ -110,7 +111,7 @@ function scoring (){
         }
         else {
             console.log(`Round ${i}!`);
-            let computerPlay = getComputerChoice();
+            const computerPlay = getComputerChoice();
             playerPrompt();
             switch (i) {
                 case 1:
@@ -139,16 +140,21 @@ function scoring (){
 
 }
 
-*/
 
-const rockPlay = document.querySelector('#rock');
-const paperPlay = document.querySelector('#paper');
-const scissorsPlay = document.querySelector('#scissors');
+// RPS-UI 
 
-const log = (e) => console.log(e);
+const start = document.querySelector('#start');
+const play = document.querySelectorAll('#plays');
 
-rockPlay.addEventListener('click', log);
+play.forEach((item) => {
+    item.addEventListener('click', () => {
+        playerPlay = item.name.toUpperCase();
+        computerPlay = getComputerChoice();
+        singleRoundResult = singleRound(playerPlay, computerPlay);
+        console.log(`Player:${playerPlay} Computer:${computerPlay}`);
+        console.log(singleRoundResult);
+        scoring();
+    });
+});
 
-paperPlay.addEventListener('click', log);
 
-scissorsPlay.addEventListener('click', log);
