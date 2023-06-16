@@ -73,15 +73,18 @@ function scoring (){
     switch (singleRoundResult){
         case 0: 
             computerScore += 1;
-            console.log(`You lose! ${computerPlay} beats ${playerPlay}.`)
+            currentPlay.innerHTML = `<p>You lose! ${computerPlay} beats ${playerPlay}.</p>`;
+          
         break;
         case 1:
             playerScore += 1;
-            console.log(`You win! ${playerPlay} beats ${computerPlay}.`)
+            currentPlay.innerHTML = `<p>You win! ${playerPlay} beats ${computerPlay}.</p>`;
+        
         break;
         case 2:
             i -= 1
-            console.log(`Tie!`);
+            currentPlay.innerHTML = `<p>Tie round!</p>`
+            
         break;
         case 3:
             i -= 1;
@@ -89,7 +92,8 @@ function scoring (){
         break;
     }
 
-    console.log(`Player Score: ${playerScore} Computer Score: ${computerScore}`);
+    playerDiv.innerHTML = `<p>${playerScore}</p>`;
+    computerDiv.innerHTML = `<p>${computerScore}</p>`;
 }
 
 //The function below let us play a best-of-five match!
@@ -145,16 +149,17 @@ function game() {
 
 const start = document.querySelector('#start');
 const play = document.querySelectorAll('#plays');
+let playerDiv = document.querySelector('#playerScore');
+let computerDiv = document.querySelector('#computerScore');
+let currentPlay = document.querySelector('#currentPlay');
 
 play.forEach((item) => {
     item.addEventListener('click', () => {
         playerPlay = item.name.toUpperCase();
         computerPlay = getComputerChoice();
         singleRoundResult = singleRound(playerPlay, computerPlay);
-        console.log(`Player:${playerPlay} Computer:${computerPlay}`);
         console.log(singleRoundResult);
         scoring();
     });
 });
-
 
