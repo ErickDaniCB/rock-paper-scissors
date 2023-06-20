@@ -10,16 +10,17 @@
     <script src="rps_second_aproach.js" defer></script>
     <h1>Rock, Paper, Scissors Game!</h1>
     <button id="start">Start Game</button>
-    <button id="plays" name="rock">Rock</button>
-    <button id="plays" name="paper">Paper</button>
-    <button id="plays" name="scissors">Scissors</button>
+    <h2 id="round">Round: <span id="roundNum"></span></h2>
+    <div id="buttons">
+        <button id="plays" name="rock">Rock</button>
+        <button id="plays" name="paper">Paper</button>
+        <button id="plays" name="scissors">Scissors</button>
+    </div>
     <div id="currentPlay"></div>
     <div class="score">
         <h2>Scores</h2>
-        <h2>Player:</h2>
-        <div id="playerScore">0</div>
-        <h2>Computer:</h2>
-        <div id="computerScore">0</div>
+        <h2>Player: <span id="playerScore">0</span></h2>
+        <h2>Computer: <span id="computerScore">0</span></h2>
     </div>
 </body>
 </html>

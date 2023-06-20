@@ -8,9 +8,10 @@ so we need to compare both inputs and add the result to their current score.
 
 let playerPlayRaw;
 let playerPlay;
+let round;
 let playerScore = 0;
 let computerScore = 0;
-let singleRoundResult; 
+let singleRoundResult;
 let i;
 //Now we need a way to generate the computer play to assign to it's correspondent variable.
 
@@ -74,92 +75,56 @@ function scoring (){
         case 0: 
             computerScore += 1;
             currentPlay.innerHTML = `<p>You lose! ${computerPlay} beats ${playerPlay}.</p>`;
-          
-        break;
+            break;
         case 1:
             playerScore += 1;
             currentPlay.innerHTML = `<p>You win! ${playerPlay} beats ${computerPlay}.</p>`;
-        
-        break;
+            break;
         case 2:
             i -= 1
-            currentPlay.innerHTML = `<p>Tie round!</p>`
-            
-        break;
-        case 3:
-            i -= 1;
-            console.log(`Invalid play!`);
-        break;
+            currentPlay.innerHTML = `<p>Tied round!</p>`;
+            break;
     }
 
-    playerDiv.innerHTML = `<p>${playerScore}</p>`;
-    computerDiv.innerHTML = `<p>${computerScore}</p>`;
+    playerScr.textContent = `${playerScore}`
+    computerSrc.textContent = `${computerScore}`;
 }
 
 //The function below let us play a best-of-five match!
 
 function game() {
-   
+
+    start.textContent = "Restart Game";
+    round = 1;
+    roundNum.textContent = round;
     playerScore = 0;
+    playerScr.textContent = `${playerScore}`;
     computerScore = 0;
-    i = 1;
+    computerSrc.textContent = `${computerScore}`;
 
-    for (i; i <= 5; i++) {
-        if (playerScore === 3) {
-            console.log(`Congratulations, you won the match!`)
-            i = 6;
-        } 
-        else if (computerScore === 3) {
-            console.log(`Sorry, you lost the match!`)
-            i = 6;
-        }
-        else {
-            console.log(`Round ${i}!`);
-            const computerPlay = getComputerChoice();
-            playerPrompt();
-            switch (i) {
-                case 1:
-                    singleRoundResult = singleRound(playerPlay, computerPlay);
-                    scoring();
-                    break;
-                case 2:
-                    singleRoundResult = singleRound(playerPlay, computerPlay);
-                    scoring();
-                    break;
-                case 3:
-                    singleRoundResult = singleRound(playerPlay, computerPlay);
-                    scoring();
-                    break;
-                case 4:
-                    singleRoundResult = singleRound(playerPlay, computerPlay);
-                    scoring();
-                    break;
-                case 5:
-                    singleRoundResult = singleRound(playerPlay, computerPlay);
-                    scoring();
-                    break;
-            }
-        }
-    }
-
+    play.forEach((item) => {
+        item.addEventListener('click', () => {
+            round += 1;
+            roundNum.textContent = round;
+            playerPlay = item.name.toUpperCase();
+            computerPlay = getComputerChoice();
+            singleRoundResult = singleRound(playerPlay, computerPlay);
+            scoring();
+        });
+    });
 }
-
-
+          
 // RPS-UI 
 
 const start = document.querySelector('#start');
 const play = document.querySelectorAll('#plays');
-let playerDiv = document.querySelector('#playerScore');
-let computerDiv = document.querySelector('#computerScore');
-let currentPlay = document.querySelector('#currentPlay');
+const roundNum = document.querySelector('#roundNum');
+const playerScr = document.querySelector('#playerScore');
+const computerSrc = document.querySelector('#computerScore');
+const currentPlay = document.querySelector('#currentPlay');
+const buttons = document.querySelector('#buttons');
 
-play.forEach((item) => {
-    item.addEventListener('click', () => {
-        playerPlay = item.name.toUpperCase();
-        computerPlay = getComputerChoice();
-        singleRoundResult = singleRound(playerPlay, computerPlay);
-        console.log(singleRoundResult);
-        scoring();
-    });
-});
 
+start.addEventListener('click', game);
+
+function scoreCount()
